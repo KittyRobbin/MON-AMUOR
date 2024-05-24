@@ -18,7 +18,7 @@ const updateModalContent = () => {
       <a href="#">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">SARANGHAE🥰</h5>
       </a>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Your new text here...</p>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">I'm not good with words so i will sing a song instead🫶🏻...(imagine my angelic voice singing it)..🎶Cause all of the small things that you do,are what remind me why i fell for you..and when we're apart and i'm missing you,i close my eyes and all i see is you,and the small things you do🫶🏻🫶</p>
     </div>`;
 };
 
