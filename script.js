@@ -1,6 +1,7 @@
 const progressBar = document.querySelector('.progress-bar');
 const heartsContainer = document.querySelector('.hearts');
 const actionButton = document.getElementById('action-button');
+const modalContent = document.querySelector('.modal-content');
 
 const createHeart = (left) => {
   const heart = document.createElement('div');
@@ -11,11 +12,33 @@ const createHeart = (left) => {
   heartsContainer.appendChild(heart);
 };
 
+const updateModalContent = () => {
+  modalContent.innerHTML = `
+    <div class="p-5">
+      <a href="#">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">SARANGHAE🥰</h5>
+      </a>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Your new text here...</p>
+    </div>`;
+};
+
+const toggleModal = () => {
+  const modal = document.getElementById('myModal');
+  if (modal.style.display === 'block' || modal.style.display === '') {
+    modal.style.display = 'none';
+  } else {
+    updateModalContent(); // Update modal content
+    modal.style.display = 'block';
+  }
+};
+
 const interval = setInterval(() => {
   const computedStyle = getComputedStyle(progressBar);
-  const width = parseFloat(computedStyle.getPropertyValue('--width')) || 0;
-  progressBar.style.setProperty('--width', width + 0.1);
-  progressBar.setAttribute('data-label', Math.min(width + 0.1, 100).toFixed(1) + '%');
+  let width = parseFloat(computedStyle.getPropertyValue('--width')) || 0;
+  // Increase the width by 0.1 until it reaches 100
+  width = Math.min(width + 0.1, 100);
+  progressBar.style.setProperty('--width', width);
+  progressBar.setAttribute('data-label', width.toFixed(1) + '%');
   
   // Add hearts at intervals, e.g., every 10%
   if (width % 10 < 0.1) {
